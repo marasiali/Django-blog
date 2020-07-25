@@ -1,24 +1,15 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Article
 
 def index(request):
     context = {
-        'posts' : [
-            {
-                'title' : 'First',
-                'desc' : 'I am first',
-                'number' : 1
-            },
-            {
-                'title' : 'Second',
-                'desc' : 'I am second',
-                'number' : 2
-            },
-            {
-                'title' : 'Third',
-                'desc' : 'I am third',
-                'number' : 3
-            },
-        ]
+        'articles' : Article.objects.filter(status='p').order_by('-published')
     }
     return render(request, 'index.html', context)
+
+def details(request, slug):
+    context = {
+        'article' : Article.objects.get(slug=slug, status='p')
+    }
+    return render(request, 'details.html', context)

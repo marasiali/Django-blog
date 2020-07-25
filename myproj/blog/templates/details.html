@@ -15,16 +15,13 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         
-        {% for article in articles %}
-            <article style="text-align: center;">
-                <h5><a href="{% url 'blog:details' article.slug %}">{{article.title}}</a></h5>
-                <figure>
-                    <img width="240" src="{{article.thumbnail.url}}">
-                    <figcaption><p>{{article.description}}</p></figcaption>
-                </figure>
-                <small>{{article.published}}</small>
-                <hr>
-            </article>
-        {% endfor %}
+        <article style="text-align: center;">
+            <h2>{{article.title}}</h2>
+            <figure>
+                <img width="480" src="{{article.thumbnail.url}}">
+                <figcaption><p>{{article.description}}</p></figcaption>
+            </figure>
+            <small>{{article.published}}</small>
+        </article>
     </body>
 </html>
