@@ -6,10 +6,10 @@ def index(request):
     context = {
         'articles' : Article.objects.filter(status='p').order_by('-published')
     }
-    return render(request, 'index.html', context)
+    return render(request, 'blog/index.html', context)
 
 def details(request, slug):
     context = {
         'article' : Article.objects.get(slug=slug, status='p')
     }
-    return render(request, 'details.html', context)
+    return render(request, 'blog/details.html', context)
