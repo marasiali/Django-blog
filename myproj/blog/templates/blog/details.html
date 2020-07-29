@@ -23,10 +23,15 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-          {{article.description | linebreaks}}
-          <p class="post-meta">نوشته شده توسط 
-            <a href="#">علی</a>
-            در {{article.jpublished}}</p>
+          <div class="post-preview">
+            <h4 class="post-subtitle">
+              {{article.description | linebreaks}}
+            </h4>
+            <p class="post-meta">نوشته شده توسط 
+              <a href="#">علی</a>
+              در {{article.jpublished}}
+            </p>
+          </div>
         </div>
       </div>
     </div>

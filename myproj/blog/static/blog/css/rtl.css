@@ -1,0 +1,103 @@
+@font-face {
+    font-family: Sahel;
+    src: url('../fonts/Sahel.eot');
+    src: url('../fonts/Sahel.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Sahel.woff2') format('woff2'),
+         url('../fonts/Sahel.woff') format('woff'),
+         url('../fonts/Sahel.ttf') format('truetype');
+    font-weight: normal;
+}
+@font-face {
+    font-family: Sahel;
+    src: url('../fonts/Sahel-Bold.eot');
+    src: url('../fonts/Sahel-Bold.eot?#iefix') format('embedded-opentype'),
+            url('../fonts/Sahel-Bold.woff2') format('woff2'),
+            url('../fonts/Sahel-Bold.woff') format('woff'),
+            url('../fonts/Sahel-Bold.ttf') format('truetype');
+    font-weight: bold;
+}
+@font-face {
+    font-family: Sahel;
+    src: url('../fonts/Sahel-Light.eot');
+    src: url('../fonts/Sahel-Light.eot?#iefix') format('embedded-opentype'),
+            url('../fonts/Sahel-Light.woff2') format('woff2'),
+            url('../fonts/Sahel-Light.woff') format('woff'),
+            url('../fonts/Sahel-Light.ttf') format('truetype');
+    font-weight: 300;
+}
+@font-face {
+    font-family: Sahel;
+    src: url('../fonts/Sahel-SemiBold.eot');
+    src: url('../fonts/Sahel-SemiBold.eot?#iefix') format('embedded-opentype'),
+            url('../fonts/Sahel-SemiBold.woff2') format('woff2'),
+            url('../fonts/Sahel-SemiBold.woff') format('woff'),
+            url('../fonts/Sahel-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+}
+@font-face {
+    font-family: Sahel;
+    src: url('../fonts/Sahel-Black.eot');
+    src: url('../fonts/Sahel-Black.eot?#iefix') format('embedded-opentype'),
+            url('../fonts/Sahel-Black.woff2') format('woff2'),
+            url('../fonts/Sahel-Black.woff') format('woff'),
+            url('../fonts/Sahel-Black.ttf') format('truetype');
+    font-weight: 900;
+}
+body{
+    direction: rtl;
+    text-align: right;
+    font-family: "Sahel";
+    font-weight: normal;
+}
+#mainNav .navbar-brand {
+    font-size: 24px;
+    font-weight: 600;
+	border-right: 3px solid #159aea;
+	padding: 6px 13px;
+}
+.nav-item {
+    position: relative;
+	display: inline-block;
+}
+.nav-item::after {
+    content: '';
+	display: block;
+    position: absolute;
+    left: 50%;
+	bottom: 0;
+	width: 0;
+	height: 3px;
+    background-color: #9bf;
+    transition: all .1s ease-out;
+}
+.nav-item:hover::after {
+    width: 100%;
+    left: 0%;
+}
+#mainNav .navbar-nav > li.nav-item > a {
+    font-size: 14px;
+    font-weight: 600;
+}
+.navbar-nav.ml-auto {
+    margin-left: initial !important;
+	margin-right: auto;
+}
+.site-heading h1 {
+	font-weight: 600;
+}
+.post-title {
+	font-weight: 600;
+}
+.post-subtitle {
+    font-size: 0.9em;
+	line-height: 1.7em;
+	text-align: justify;
+}
+.post-preview > .post-meta {
+	font-style: normal;
+    margin-top: 20px;
+    font-weight: 300;
+}
+.paginator-btn {
+	font-weight: 600;
+}
