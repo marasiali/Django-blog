@@ -1,0 +1,7 @@
+<div class="post-categories">
+    {% for cat in categories %}
+      <a href="{% url 'blog:category' cat.slug %}">
+        {{cat.title}}
+      </a>
+    {% endfor %}
+</div>

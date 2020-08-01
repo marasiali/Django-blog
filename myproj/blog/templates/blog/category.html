@@ -28,7 +28,9 @@
             </a>
             <p class="post-meta">نوشته شده توسط 
               <a href="#">علی</a>
-              در {{article.jpublished}}</p>
+              در {{article.jpublished}}
+              {% article_category_tags article %}
+            </p>
           </div>
           <hr>
         {% endfor%}

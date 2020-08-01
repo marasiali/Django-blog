@@ -16,3 +16,9 @@ def category_navbar():
     return {
         'categories' : Category.objects.filter(status=True)
     }
+
+@register.inclusion_tag('blog/partial/category_tag.html')
+def article_category_tags(article):
+    return {
+        'categories' : article.category.all
+    }

@@ -1,6 +1,6 @@
 {% extends 'blog/base.html' %}
 {% load static %}
-
+{% load base_tags %}
 {% block title %} | {{article.title}}{% endblock %}
 
 {% block main %}
@@ -30,6 +30,7 @@
             <p class="post-meta">نوشته شده توسط 
               <a href="#">علی</a>
               در {{article.jpublished}}
+              {% article_category_tags article %}
             </p>
           </div>
         </div>
