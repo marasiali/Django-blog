@@ -14,11 +14,11 @@ def brand_name():
 @register.inclusion_tag('blog/partial/category_navbar.html')
 def category_navbar():
     return {
-        'categories' : Category.objects.filter(status=True)
+        'categories' : Category.objects.available()
     }
 
 @register.inclusion_tag('blog/partial/category_tag.html')
 def article_category_tags(article):
     return {
-        'categories' : article.category.all
+        'categories' : article.category.available()
     }

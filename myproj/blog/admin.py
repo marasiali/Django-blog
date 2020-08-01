@@ -25,7 +25,7 @@ class ArticleAdmin(admin.ModelAdmin):
     ordering = ['status', '-published']
 
     def category_to_str(self, obj):
-        return ', '.join(map(lambda cat : cat.title, obj.category.all()))
+        return ', '.join(map(lambda cat : cat.title, obj.category.available()))
     category_to_str.short_description = 'دسته‌بندی‌ها'
     
 
