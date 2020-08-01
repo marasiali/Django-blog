@@ -1,0 +1,42 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% load base_tags %}
+{% block main %}
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('{{category.thumbnail.url}}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>{{category.title}}</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        {% for article in category.articles.all %}
+          <div class="post-preview">
+            <a href="{% url 'blog:details' article.slug %}">
+              <h2 class="post-title">{{article.title}}</h2>
+              <h4 class="post-subtitle">{{article.description | truncatewords:30}}</h4>
+            </a>
+            <p class="post-meta">نوشته شده توسط 
+              <a href="#">علی</a>
+              در {{article.jpublished}}</p>
+          </div>
+          <hr>
+        {% endfor%}
+        <!-- Pager -->
+        <div class="clearfix">
+          <a class="btn btn-primary float-left paginator-btn" href="#">&larr; مطالب قدیمی‌تر</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
