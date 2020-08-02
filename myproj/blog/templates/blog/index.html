@@ -36,7 +36,12 @@
         {% endfor%}
         <!-- Pager -->
         <div class="clearfix">
-          <a class="btn btn-primary float-left paginator-btn" href="#">&larr; مطالب قدیمی‌تر</a>
+          {% if articles.has_next %}
+            <a class="btn btn-primary float-left paginator-btn" href="{% url 'blog:index' articles.next_page_number %}">&larr; مطالب قدیمی‌تر</a>
+          {% endif %}
+          {% if articles.has_previous %}
+            <a class="btn btn-primary float-right paginator-btn" href="{% url 'blog:index' articles.previous_page_number %}">&rarr; مطالب جدیدتر</a>
+          {% endif %}
         </div>
       </div>
     </div>
