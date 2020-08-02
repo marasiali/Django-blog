@@ -12,7 +12,10 @@ class Category(models.Model):
     title = models.CharField(max_length=200, verbose_name='عنوان')
     slug = models.SlugField(max_length=100, unique=True, verbose_name='لینک')
     thumbnail = models.ImageField(upload_to='categories/images', verbose_name='تصویر اصلی', blank=True)
-    position = models.SmallIntegerField(verbose_name='ترتیب')
+    parent = models.ForeignKey('self', blank=True, null=True, \
+                                default=None,  on_delete=models.SET_NULL, \
+                                related_name='children', verbose_name='پدر')
+    position = models.SmallIntegerField(verbose_name='اولویت')
     status = models.BooleanField(default=True, verbose_name='فعال باشد؟')
     
     objects = CategoryManager()
@@ -23,7 +26,7 @@ class Category(models.Model):
     class Meta:
         verbose_name = 'دسته‌بندی'
         verbose_name_plural = 'دسته‌بندی‌ها'
-        ordering = ['position']
+        ordering = ['parent__id', 'position']
     
 
 

@@ -3,10 +3,10 @@ from .models import Category, Article
 from .extensions.utils import convert_to_persian_digits
 
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('position', 'title', 'slug', 'category_article_count', 'status')
+    list_display = ('position', 'title', 'slug', 'parent', 'category_article_count', 'status')
     list_filter = ('status',)
     search_fields = ('title', 'slug')
-    prepopulated_field = {'slug': ('title',)}
+    prepopulated_fields = {'slug': ('title',)}
 
     def category_article_count(self, obj):
         cat_all_articles = Article.objects.filter(category=obj)

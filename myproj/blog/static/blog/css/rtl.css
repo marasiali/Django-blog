@@ -55,11 +55,11 @@ body{
 	border-right: 3px solid #159aea;
 	padding: 6px 13px;
 }
-.nav-item {
+.nav-item a{
     position: relative;
 	display: inline-block;
 }
-.nav-item::after {
+.nav-item a::after {
     content: '';
 	display: block;
     position: absolute;
@@ -70,7 +70,7 @@ body{
     background-color: #9bf;
     transition: all .1s ease-out;
 }
-.nav-item:hover::after {
+.nav-item a:hover::after {
     width: 100%;
     left: 0%;
 }
@@ -78,10 +78,18 @@ body{
     font-size: 14px;
     font-weight: 600;
 }
-.navbar-nav.ml-auto {
+.navbar-nav {
     margin-left: initial !important;
-	margin-right: auto;
+    margin-right: auto;
+    position: relative;
 }
+.navbar-nav li{
+    position: relative;
+}
+#navbarResponsive nav ul{
+    flex-direction: row-reverse !important;
+}
+
 .site-heading h1 {
 	font-weight: 600;
 }

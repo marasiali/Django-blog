@@ -17,7 +17,7 @@ def category_navbar():
         'categories' : Category.objects.available()
     }
 
-@register.inclusion_tag('blog/partial/category_tag.html')
+@register.inclusion_tag('blog/partial/category_tags.html')
 def article_category_tags(article):
     return {
         'categories' : article.category.available()
