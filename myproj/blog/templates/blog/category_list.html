@@ -25,7 +25,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-        {% for article in articles %}
+        {% for article in object_list %}
           <div class="post-preview">
             <a href="{% url 'blog:details' article.slug %}">
               <h2 class="post-title">{{article.title}}</h2>
@@ -40,14 +40,16 @@
           <hr>
         {% endfor%}
         <!-- Pager -->
-        <div class="clearfix">
-          {% if articles.has_next %}
-            <a class="btn btn-primary float-left paginator-btn" href="{% url 'blog:category' category.slug articles.next_page_number %}">&larr; مطالب قدیمی‌تر</a>
-          {% endif %}
-          {% if articles.has_previous %}
-            <a class="btn btn-primary float-right paginator-btn" href="{% url 'blog:category' category.slug articles.previous_page_number %}">&rarr; مطالب جدیدتر</a>
-          {% endif %}
-        </div>
+        {% if is_paginated %}
+          <div class="clearfix">
+            {% if page_obj.has_next %}
+              <a class="btn btn-primary float-left paginator-btn" href="{% url 'blog:category' category.slug page_obj.next_page_number %}">&larr; مطالب قدیمی‌تر</a>
+            {% endif %}
+            {% if page_obj.has_previous %}
+              <a class="btn btn-primary float-right paginator-btn" href="{% url 'blog:category' category.slug page_obj.previous_page_number %}">&rarr; مطالب جدیدتر</a>
+            {% endif %}
+          </div>
+        {% endif %}
       </div>
     </div>
   </div>

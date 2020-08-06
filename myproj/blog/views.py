@@ -17,13 +17,16 @@ class ArticleDetail(DetailView):
         return article
 
 
-def category(request, slug, page=1):
-    cat = get_object_or_404(Category.objects.available(), slug=slug)
-    all_published_articles = cat.articles.published()
-    paginator = Paginator(all_published_articles, 3)
-    articles = paginator.get_page(page)
-    context = {
-        'category' : cat,
-        'articles' : articles,
-    }
-    return render(request, 'blog/category.html', context)
+class CategoryList(ListView):
+    template_name = 'blog/category_list.html'
+    paginate_by = 3
+    
+    def get_queryset(self):
+        slug = self.kwargs.get('slug')
+        CategoryList.category = get_object_or_404(Category.objects.available(), slug=slug)
+        return CategoryList.category.articles.published()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['category'] = CategoryList.category
+        return context
