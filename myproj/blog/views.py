@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from django.core.paginator import Paginator
 from django.http import HttpResponse
 from .models import Article, Category
@@ -10,11 +10,12 @@ class ArticleList(ListView):
     paginate_by = 3
 
 
-def details(request, slug):
-    context = {
-        'article' : get_object_or_404(Article.objects.published(), slug=slug)
-    }
-    return render(request, 'blog/details.html', context)
+class ArticleDetail(DetailView):
+    def get_object(self):
+        slug = self.kwargs.get('slug')
+        article = get_object_or_404(Article.objects.published(), slug=slug)
+        return article
+
 
 def category(request, slug, page=1):
     cat = get_object_or_404(Category.objects.available(), slug=slug)

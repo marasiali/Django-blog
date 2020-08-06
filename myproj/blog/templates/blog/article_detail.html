@@ -1,17 +1,17 @@
 {% extends 'blog/base.html' %}
 {% load static %}
 {% load base_tags %}
-{% block title %} | {{article.title}}{% endblock %}
+{% block title %} | {{object.title}}{% endblock %}
 
 {% block main %}
   <!-- Page Header -->
-  <header class="masthead" style="background-image: url('{{article.thumbnail.url}}')">
+  <header class="masthead" style="background-image: url('{{object.thumbnail.url}}')">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="site-heading">
-            <h1>{{article.title}}</h1>
+            <h1>{{object.title}}</h1>
           </div>
         </div>
       </div>
@@ -25,12 +25,12 @@
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="post-preview">
             <h4 class="post-subtitle">
-              {{article.description | linebreaks}}
+              {{object.description | linebreaks}}
             </h4>
             <p class="post-meta">نوشته شده توسط 
               <a href="#">علی</a>
-              در {{article.jpublished}}
-              {% article_category_tags article %}
+              در {{object.jpublished}}
+              {% article_category_tags object %}
             </p>
           </div>
         </div>
