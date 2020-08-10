@@ -8,6 +8,7 @@ class CategoryAdmin(admin.ModelAdmin):
     list_filter = ('status',)
     search_fields = ('title', 'slug')
     prepopulated_fields = {'slug': ('title',)}
+    actions = ('make_active', 'make_deactive')
 
     def category_article_count(self, obj):
         cat_all_articles = Article.objects.filter(category=obj)
@@ -17,6 +18,19 @@ class CategoryAdmin(admin.ModelAdmin):
         return convert_to_persian_digits(output)
     category_article_count.short_description = 'تعداد مطالب'
 
+    def make_active(self, request, queryset):
+            updated = queryset.update(status=True)
+            updated = convert_to_persian_digits(updated)
+            msg = f'{updated} دسته بندی فعال شد.'
+            self.message_user(request, msg, messages.SUCCESS)
+    make_active.short_description = 'فعال کردن'
+
+    def make_deactive(self, request, queryset):
+            updated = queryset.update(status=False)
+            updated = convert_to_persian_digits(updated)
+            msg = f'{updated} دسته بندی غیر‌فعال شد.'
+            self.message_user(request, msg, messages.SUCCESS)
+    make_deactive.short_description = 'غیر‌فعال کردن'
 
 class ArticleAdmin(admin.ModelAdmin):
     list_display = ('title', 'slug', 'jpublished', 'category_to_str', 'status')
