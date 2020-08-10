@@ -13,8 +13,11 @@ class CategoryAdmin(admin.ModelAdmin):
     def category_article_count(self, obj):
         cat_all_articles = Article.objects.filter(category=obj)
         cat_draft_articles = cat_all_articles.filter(status='d')
-        output = '{}  ({} پیش‌نویس)'.format(cat_all_articles.count(),
-                                          cat_draft_articles.count())
+        cat_all_articles_count = cat_all_articles.count()
+        cat_draft_articles_count = cat_draft_articles.count()
+        output = str(cat_all_articles_count)
+        if cat_draft_articles_count != 0:
+            output += f'({cat_draft_articles_count} پیش‌نویس)'
         return convert_to_persian_digits(output)
     category_article_count.short_description = 'تعداد مطالب'
 
