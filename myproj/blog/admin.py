@@ -1,4 +1,5 @@
 from django.contrib import admin, messages
+from django.utils.html import format_html
 from .models import Category, Article
 from .extensions.utils import convert_to_persian_digits
 
@@ -36,12 +37,17 @@ class CategoryAdmin(admin.ModelAdmin):
     make_deactive.short_description = 'غیر‌فعال کردن'
 
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ('title', 'slug', 'jpublished', 'category_to_str', 'status')
+    list_display = ('title', 'slug', 'thumbnail_tag', 'jpublished', 'category_to_str', 'status')
     list_filter = ('published', 'status')
     search_fields = ('title', 'description', 'slug')
     prepopulated_fields = {'slug': ('title',)}
     ordering = ('status', '-published')
     actions = ('make_published', 'make_draft')
+
+    def thumbnail_tag(self, obj):
+        thumbnail_tag = '<img src={} width=100 style="border-radius: 3px">'
+        return format_html(thumbnail_tag, obj.thumbnail.url)
+    thumbnail_tag.short_description = 'تصویر اصلی'
 
     def category_to_str(self, obj):
         return ', '.join(map(lambda cat : cat.title, obj.category.available()))
