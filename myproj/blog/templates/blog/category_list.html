@@ -1,11 +1,13 @@
 {% extends 'blog/list.html' %}
 {% load static %}
 
-{% block header_attr %}
+{% block header_thumbnail %}{% spaceless %}
   {% if category.thumbnail %}
-  style="background-image: url('{{ category.thumbnail.url }}')"
+    {{ category.thumbnail.url }}
+  {% else %}
+    {{ block.super }}
   {% endif %}
-{% endblock %}
+{% endspaceless %}{% endblock %}
 
 {% block header_title %}
   {{category.title}}

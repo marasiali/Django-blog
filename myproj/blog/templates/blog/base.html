@@ -34,6 +34,19 @@
   <!-- Navigation -->
   {% category_navbar %}
 
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('{% block header_thumbnail %}{% static 'blog/img/home-bg.jpg' %}{% endblock %}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>{% block header_title %}{% endblock %}</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
   {% block main %}
   {% endblock %}
 
