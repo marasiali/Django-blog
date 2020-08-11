@@ -1,0 +1,51 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% load base_tags %}
+{% block main %}
+  <!-- Page Header -->
+  <header class="masthead" {% block header_attr %}{% endblock %}>
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>{% block header_title %}{% endblock %}</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        {% for article in object_list %}
+          <div class="post-preview">
+            <a href="{% url 'blog:details' article.slug %}">
+              <h2 class="post-title">{{article.title}}</h2>
+              <h4 class="post-subtitle">{{article.description | truncatewords:30}}</h4>
+            </a>
+            <p class="post-meta">نوشته شده توسط 
+              <a href="#">علی</a>
+              در {{article.jpublished}}
+              {% article_category_tags article %}
+            </p>
+          </div>
+          <hr>
+        {% endfor%}
+        <!-- Pager -->
+        {% if is_paginated %}
+          <div class="clearfix">
+            {% if page_obj.has_next %}
+              <a class="btn btn-primary float-left paginator-btn" href="{% block next_page_url %}{% endblock %}">&larr; مطالب قدیمی‌تر</a>
+            {% endif %}
+            {% if page_obj.has_previous %}
+              <a class="btn btn-primary float-right paginator-btn" href="{% block previous_page_url %}{% endblock %}">&rarr; مطالب جدیدتر</a>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
