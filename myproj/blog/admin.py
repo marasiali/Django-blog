@@ -4,6 +4,8 @@ from .models import Category, Article
 from .extensions.utils import convert_to_persian_digits
 
 
+admin.site.site_header = 'مدیریت جنگو وب'
+
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('position', 'title', 'slug', 'parent', 'category_article_count', 'status')
     list_filter = ('status',)
