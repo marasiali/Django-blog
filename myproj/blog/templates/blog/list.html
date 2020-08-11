@@ -23,6 +23,7 @@
         {% for article in object_list %}
           <div class="post-preview">
             <a href="{% url 'blog:details' article.slug %}">
+              <img class="float-right post-thumbnail" src="{{article.thumbnail.url}}" width=150 height=120>
               <h2 class="post-title">{{article.title}}</h2>
               <h4 class="post-subtitle">{{article.description | truncatewords:30}}</h4>
             </a>

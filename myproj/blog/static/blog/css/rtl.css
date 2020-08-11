@@ -126,3 +126,10 @@ body{
 .paginator-btn {
 	font-weight: 600;
 }
+.post-thumbnail {
+	margin: 30px 0px 0 25px;
+    border-radius: 7px;
+}
+.post-preview a:hover .post-thumbnail {
+	opacity: 0.75;
+}
