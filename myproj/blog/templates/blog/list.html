@@ -28,7 +28,7 @@
               <h4 class="post-subtitle">{{article.description | truncatewords:30}}</h4>
             </a>
             <p class="post-meta">نوشته شده توسط 
-              <a href="#">علی</a>
+              <a href="#">{{article.author.get_full_name}}</a>
               در {{article.jpublished}}
               {% article_category_tags article %}
             </p>

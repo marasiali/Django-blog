@@ -39,8 +39,8 @@ class CategoryAdmin(admin.ModelAdmin):
     make_deactive.short_description = 'غیر‌فعال کردن'
 
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ('title', 'slug', 'thumbnail_tag', 'jpublished', 'category_to_str', 'status')
-    list_filter = ('published', 'status')
+    list_display = ('title', 'slug', 'thumbnail_tag', 'author', 'jpublished', 'category_to_str', 'status')
+    list_filter = ('published', 'status', 'author')
     search_fields = ('title', 'description', 'slug')
     prepopulated_fields = {'slug': ('title',)}
     ordering = ('status', '-published')

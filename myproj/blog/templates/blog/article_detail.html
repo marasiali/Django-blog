@@ -28,7 +28,7 @@
               {{object.description | linebreaks}}
             </h4>
             <p class="post-meta">نوشته شده توسط 
-              <a href="#">علی</a>
+              <a href="#">{{article.author.get_full_name}}</a>
               در {{object.jpublished}}
               {% article_category_tags object %}
             </p>
