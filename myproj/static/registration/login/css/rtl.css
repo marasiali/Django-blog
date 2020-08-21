@@ -1,0 +1,68 @@
+@font-face {
+    font-family: Shabnam;
+    src: url('../fonts/Shabnam/Shabnam.eot');
+    src: url('../fonts/Shabnam/Shabnam.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Shabnam/Shabnam.woff2') format('woff2'),
+         url('../fonts/Shabnam/Shabnam.woff') format('woff'),
+         url('../fonts/Shabnam/Shabnam.ttf') format('truetype');
+    font-weight: normal;
+}
+  
+  @font-face {
+    font-family: Shabnam;
+    src: url('../fonts/Shabnam/Shabnam-Bold.eot');
+    src: url('../fonts/Shabnam/Shabnam-Bold.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Shabnam/Shabnam-Bold.woff2') format('woff2'),
+         url('../fonts/Shabnam/Shabnam-Bold.woff') format('woff'),
+         url('../fonts/Shabnam/Shabnam-Bold.ttf') format('truetype');
+    font-weight: bold;
+}
+  
+@font-face {
+    font-family: Shabnam;
+    src: url('../fonts/Shabnam/Shabnam-Thin.eot');
+    src: url('../fonts/Shabnam/Shabnam-Thin.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Shabnam/Shabnam-Thin.woff2') format('woff2'),
+         url('../fonts/Shabnam/Shabnam-Thin.woff') format('woff'),
+         url('../fonts/Shabnam/Shabnam-Thin.ttf') format('truetype');
+    font-weight: 100;
+}
+  
+@font-face {
+    font-family: Shabnam;
+    src: url('../fonts/Shabnam/Shabnam-Light.eot');
+    src: url('../fonts/Shabnam/Shabnam-Light.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Shabnam/Shabnam-Light.woff2') format('woff2'),
+         url('../fonts/Shabnam/Shabnam-Light.woff') format('woff'),
+         url('../fonts/Shabnam/Shabnam-Light.ttf') format('truetype');
+    font-weight: 300;
+}
+  
+@font-face {
+    font-family: Shabnam;
+    src: url('../fonts/Shabnam/Shabnam-Medium.eot');
+    src: url('../fonts/Shabnam/Shabnam-Medium.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Shabnam/Shabnam-Medium.woff2') format('woff2'),
+         url('../fonts/Shabnam/Shabnam-Medium.woff') format('woff'),
+         url('../fonts/Shabnam/Shabnam-Medium.ttf') format('truetype');
+    font-weight: 500;
+}
+
+/***********************************************************************/
+
+body{
+    direction: rtl;
+}
+body, .shabnam-font{
+    font-family: Shabnam !important;
+}
+a{
+    text-decoration: none;
+}
+.input100 {
+    padding: 0 43px 0 7px;
+}
+.focus-input100::after, .focus-input100::before {
+    left: initial;
+	right: 0;
+}
