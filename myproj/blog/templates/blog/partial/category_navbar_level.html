@@ -1,7 +1,7 @@
 <ul class="navbar-nav ml-auto">
     {% for category in category.children.available %}
         <li class="nav-item">
-            <a class="nav-link" href="{% url 'blog:category' category.slug %}">{{category.title}}</a>
+            <a class="nav-link" href="{% url 'blog:category' category.slug_path %}">{{category.title}}</a>
             {% if category.children.available %}
                 {% include 'blog/partial/category_navbar_level.html' %}
             {% endif %}

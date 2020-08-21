@@ -1,6 +1,6 @@
 <div class="post-categories">
     {% for cat in categories %}
-      <a href="{% url 'blog:category' cat.slug %}">
+      <a href="{% url 'blog:category' cat.slug_path %}">
         {{cat.title}}
       </a>
     {% endfor %}

@@ -44,7 +44,14 @@ class Category(models.Model):
         verbose_name = 'دسته‌بندی'
         verbose_name_plural = 'دسته‌بندی‌ها'
         ordering = ['parent__id', 'position']
-    
+
+    def slug_path(self):
+        cur_category = self
+        path_list = [cur_category.slug]
+        while cur_category.parent:
+            cur_category = cur_category.parent
+            path_list.insert(0, cur_category.slug)
+        return '/'.join(path_list)
 
 
 class ArticleManager(models.Manager):

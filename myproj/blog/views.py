@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
 from django.core.paginator import Paginator
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.contrib.auth.models import User
 from .models import Article, Category
 
@@ -23,8 +23,16 @@ class CategoryList(ListView):
     paginate_by = 3
     
     def get_queryset(self):
-        slug = self.kwargs.get('slug')
-        CategoryList.category = get_object_or_404(Category.objects.available(), slug=slug)
+        slugs = self.kwargs.get('slugs')
+        category_slug, *subcategory_slugs = slugs.split('/')
+        CategoryList.category = get_object_or_404(
+            Category.objects.available(),
+            slug=category_slug,
+            parent=None
+        )
+        for sub_cat in subcategory_slugs:
+            CategoryList.category = get_object_or_404(CategoryList.category.children, slug=sub_cat)
+
         category_children = Category.objects.available_children(CategoryList.category)
         return Article.objects.published().filter(category__in=category_children).distinct()
 
