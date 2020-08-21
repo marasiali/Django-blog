@@ -34,20 +34,33 @@
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url({% static 'registration/login/images/bg-01.jpg' %});">
 			<div class="wrap-login100 p-l-35 p-r-35 p-t-45 p-b-35">
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" method="post">
 					<span class="login100-form-title p-b-49 shabnam-font">
 						ورود
 					</span>
-
-					<div class="wrap-input100 validate-input m-b-23" data-validate = "Username is reauired">
+					{% csrf_token %}
+					{% if form.non_field_errors %}
+						<div class="alert alert-danger alert-dismiss">
+							نام کاربری یا رمزعبور وارد شده اشتباه است.
+						</div>
+					{% elif form.username.errors %}
+						<div class="alert alert-danger alert-dismiss">
+							نام کاربری نمیتواند خالی باشد!
+						</div>
+					{% elif form.password.errors %}
+						<div class="alert alert-danger alert-dismiss">
+							رمزعبور نمیتواند خالی باشد!
+						</div>
+					{% endif %}
+					<div class="wrap-input100 validate-input m-b-23" data-validate = "نام کاربری نمیتواند خالی باشد!">
 						<span class="label-input100 shabnam-font">نام کاربری</span>
-						<input class="input100 shabnam-font" type="text" name="username" placeholder="نام کاربری">
+						<input class="input100 shabnam-font" type="text" name="{{ form.username.name }}" placeholder="نام کاربری">
 						<span class="focus-input100" data-symbol="&#xf206;"></span>
 					</div>
 
-					<div class="wrap-input100 validate-input" data-validate="Password is required">
+					<div class="wrap-input100 validate-input" data-validate="رمزعبور نمیتواند خالی باشد!">
 						<span class="label-input100 shabnam-font">رمزعبور</span>
-						<input class="input100 shabnam-font" type="password" name="pass" placeholder="رمزعبور">
+						<input class="input100 shabnam-font" type="password" name="{{ form.password.name }}" placeholder="رمزعبور">
 						<span class="focus-input100" data-symbol="&#xf190;"></span>
 					</div>
 					
