@@ -8,7 +8,23 @@ class CategoryManager(models.Manager):
     def available(self):
         return self.filter(status=True)
 
+    def all_children(self, category):
+        out = []
+        if not out:
+            out.append(category)
+        for child_cat in category.children.all():
+            out += self.all_children(child_cat)
+        return out
 
+    def available_children(self, category):
+        out = []
+        if not out and category.status:
+            out.append(category)
+        for child_cat in category.children.all():
+            if child_cat.status:
+                out += self.available_children(child_cat)
+        return out
+        
 class Category(models.Model):
     title = models.CharField(max_length=200, verbose_name='عنوان')
     slug = models.SlugField(max_length=100, unique=True, verbose_name='لینک')

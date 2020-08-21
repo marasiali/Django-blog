@@ -25,7 +25,8 @@ class CategoryList(ListView):
     def get_queryset(self):
         slug = self.kwargs.get('slug')
         CategoryList.category = get_object_or_404(Category.objects.available(), slug=slug)
-        return CategoryList.category.articles.published()
+        category_children = Category.objects.available_children(CategoryList.category)
+        return Article.objects.published().filter(category__in=category_children).distinct()
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
