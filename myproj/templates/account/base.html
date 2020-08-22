@@ -1,0 +1,69 @@
+<!doctype html>
+{% load static %}
+<html lang="fa">
+
+<head>
+	<title>پیشخوان</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<!-- VENDOR CSS -->
+	<link rel="stylesheet" href="{% static 'account/vendor/bootstrap/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'account/vendor/font-awesome/css/font-awesome.min.css' %}">
+	<link rel="stylesheet" href="{% static 'account/vendor/linearicons/style.css' %}">
+	<link rel="stylesheet" href="{% static 'account/vendor/chartist/css/chartist-custom.css' %}">
+	<!-- MAIN CSS -->
+	<link rel="stylesheet" href="{% static 'account/css/main.css' %}">
+	<link rel="stylesheet" href="{% static 'account/css/rtl.css' %}">
+	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+	<link rel="stylesheet" href="{% static 'account/css/demo.css' %}">
+	<!-- GOOGLE FONTS -->
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+	<!-- ICONS -->
+	<link rel="apple-touch-icon" sizes="76x76" href="{% static 'account/img/apple-icon.png' %}">
+	<link rel="icon" type="image/png" sizes="96x96" href="{% static 'account/img/favicon.png' %}">
+</head>
+
+<body>
+	<!-- WRAPPER -->
+	<div id="wrapper">
+		<!-- NAVBAR -->
+		{% include 'account/navbar.html' %}
+		<!-- END NAVBAR -->
+		<!-- SIDEBAR -->
+		{% include 'account/sidebar.html' %}
+		<!-- END SIDEBAR -->
+		<!-- MAIN -->
+		<div class="main">
+			<!-- MAIN CONTENT -->
+			<div class="main-content">
+				<div class="container-fluid">
+					{% block main %}{% endblock %}
+					
+				</div>
+			</div>
+			<!-- END MAIN CONTENT -->
+		</div>
+		<!-- END MAIN -->
+		
+		<div class="clearfix"></div>
+		<footer>
+			<div class="container-fluid">
+				<p class="copyright">&copy; 2017 <a href="https://www.themeineed.com" target="_blank">Theme I Need</a>. All Rights Reserved.</p>
+				<a target="_blank" href="https://icons8.com/icons/set/test-account">Test Account icon</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+			</div>
+		</footer>
+	</div>
+	<!-- END WRAPPER -->
+	<!-- Javascript -->
+	<script src="{% static 'account/vendor/jquery/jquery.min.js' %}"></script>
+	<script src="{% static 'account/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'account/vendor/jquery-slimscroll/jquery.slimscroll.min.js' %}"></script>
+	<script src="{% static 'account/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js' %}"></script>
+	<script src="{% static 'account/vendor/chartist/js/chartist.min.js' %}"></script>
+	<script src="{% static 'account/scripts/klorofil-common.js' %}"></script>
+	<script src="{% static 'account/scripts/java.js' %}"></script>
+	
+</body>
+
+</html>

@@ -1,0 +1,141 @@
+@font-face {
+    font-family: Shabnam;
+    src: url('../vendor/Shabnam/Shabnam.eot');
+    src: url('../vendor/Shabnam/Shabnam.eot?#iefix') format('embedded-opentype'),
+         url('../vendor/Shabnam/Shabnam.woff2') format('woff2'),
+         url('../vendor/Shabnam/Shabnam.woff') format('woff'),
+         url('../vendor/Shabnam/Shabnam.ttf') format('truetype');
+    font-weight: normal;
+}
+  
+  @font-face {
+    font-family: Shabnam;
+    src: url('../vendor/Shabnam/Shabnam-Bold.eot');
+    src: url('../vendor/Shabnam/Shabnam-Bold.eot?#iefix') format('embedded-opentype'),
+         url('../vendor/Shabnam/Shabnam-Bold.woff2') format('woff2'),
+         url('../vendor/Shabnam/Shabnam-Bold.woff') format('woff'),
+         url('../vendor/Shabnam/Shabnam-Bold.ttf') format('truetype');
+    font-weight: bold;
+}
+  
+@font-face {
+    font-family: Shabnam;
+    src: url('../vendor/Shabnam/Shabnam-Thin.eot');
+    src: url('../vendor/Shabnam/Shabnam-Thin.eot?#iefix') format('embedded-opentype'),
+         url('../vendor/Shabnam/Shabnam-Thin.woff2') format('woff2'),
+         url('../vendor/Shabnam/Shabnam-Thin.woff') format('woff'),
+         url('../vendor/Shabnam/Shabnam-Thin.ttf') format('truetype');
+    font-weight: 100;
+}
+  
+@font-face {
+    font-family: Shabnam;
+    src: url('../vendor/Shabnam/Shabnam-Light.eot');
+    src: url('../vendor/Shabnam/Shabnam-Light.eot?#iefix') format('embedded-opentype'),
+         url('../vendor/Shabnam/Shabnam-Light.woff2') format('woff2'),
+         url('../vendor/Shabnam/Shabnam-Light.woff') format('woff'),
+         url('../vendor/Shabnam/Shabnam-Light.ttf') format('truetype');
+    font-weight: 300;
+}
+  
+@font-face {
+    font-family: Shabnam;
+    src: url('../vendor/Shabnam/Shabnam-Medium.eot');
+    src: url('../vendor/Shabnam/Shabnam-Medium.eot?#iefix') format('embedded-opentype'),
+         url('../vendor/Shabnam/Shabnam-Medium.woff2') format('woff2'),
+         url('../vendor/Shabnam/Shabnam-Medium.woff') format('woff'),
+         url('../vendor/Shabnam/Shabnam-Medium.ttf') format('truetype');
+    font-weight: 500;
+}
+
+/***********************************************************************/
+
+body{
+    direction: rtl;
+    text-align: right;
+    font-family: Shabnam;
+}
+.sidebar .nav {
+	padding-left: 0;
+	padding-right: 0;
+}
+#wrapper .sidebar {
+	left: initial;
+	right: 0;
+}
+.sidebar .nav > li > a {
+	border-left: 0;
+	border-right: 5px solid transparent;
+}
+.sidebar .nav > li > a:focus, .sidebar .nav > li > a.active {
+	border-right-color: #00AAFF;
+}
+.slimScrollBar{
+    left: 1px;
+    right: initial !important;
+}
+#wrapper .main {
+    float: left;
+}
+.layout-fullwidth #wrapper .sidebar {
+    right: -260px;
+}
+.layout-fullwidth #wrapper .navbar {
+    right: 0 !important; 
+}
+.offcanvas-active #wrapper .sidebar {
+    right: 0; 
+}
+.offcanvas-active #wrapper .main {
+    right: 260px; 
+}
+@media screen and (max-width: 1024px) {
+    #wrapper .sidebar {
+      right: -260px;
+    }
+    #wrapper .navbar {
+      right: 0 !important;
+    }
+}
+.sidebar .nav > li > a {
+	padding: 18px 10px;
+}
+.sidebar .nav li a span{
+    margin-right: 5px;
+}
+.table > thead > tr > th {
+	text-align: right;
+}
+.dropdown-menu > li > a {
+	text-align: right;
+}
+.navbar-nav > li > a {
+    padding: 17px 20px;
+}
+.navbar-nav > li > a img {
+	width: 48px;
+	margin-right: 22px;
+}
+.navbar-nav > li > a > span {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.navbar-right{
+    padding-right: 10px;
+}
+.brand.navbar-right{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+footer {
+    direction: ltr;
+    text-align: left;
+    left: 0;
+    right: initial;
+}
+footer, .copyright{
+    font-size: 11px;
+}
+footer a{
+    color: #555;
+}
