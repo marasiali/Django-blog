@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
 from django.core.paginator import Paginator
 from django.http import HttpResponse, Http404
-from django.contrib.auth.models import User
+from account.models import User
 from .models import Article, Category
 
 
