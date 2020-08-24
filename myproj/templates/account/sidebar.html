@@ -1,20 +1,15 @@
+{% load navbar_tags %}
+
 <div id="sidebar-nav" class="sidebar">
     <div class="sidebar-scroll">
         <nav>
             <ul class="nav">
-                <li><a href="index.html" class="active"><i class="lnr lnr-home"></i> <span>خانه</span></a></li>
-                <li>
-                    <a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>مقالات</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
-                    <div id="subPages" class="collapse ">
-                        <ul class="nav">
-                            <li><a href="page-profile.html" class="">لیست مقالات</a></li>
-                            <li><a href="page-login.html" class="">مقاله جدید</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li><a href="elements.html" class=""><i class="lnr lnr-code"></i> <span>تست ۱</span></a></li>
-                <li><a href="charts.html" class=""><i class="lnr lnr-chart-bars"></i> <span>تست ۲</span></a></li>
-                <li><a href="panels.html" class=""><i class="lnr lnr-cog"></i> <span>تست ۳</span></a></li>
+                {% item_menu False 'lnr-home' 'خانه' '#' %}
+                {% submenu False 'lnr-file-empty' 'مقالات' %}
+                    {% item_menu False 'lnr-list' 'لیست مقالات' '#' %}
+                    {% item_menu False 'lnr-plus-circle' 'افزودن مقاله' '#' %}
+                {% endsubmenu %}
+                {% item_menu False 'lnr-exit' 'خروج' '#' %}
             </ul>
         </nav>
     </div>

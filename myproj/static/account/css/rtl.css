@@ -67,8 +67,16 @@ body{
 	border-left: 0;
 	border-right: 5px solid transparent;
 }
-.sidebar .nav > li > a:focus, .sidebar .nav > li > a.active {
-	border-right-color: #00AAFF;
+.sidebar .nav > li > a:focus,
+.sidebar .nav > li > a.active
+{
+    border-right-color: #00AAFF;
+}
+.sidebar .nav > li ul > li > a {
+    margin-right: 20px;
+}
+.sidebar .nav > ul li > a:focus, .sidebar .nav > ul li > a.active {
+    border-right-color: #1784bb;
 }
 .slimScrollBar{
     left: 1px;
