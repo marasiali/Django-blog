@@ -8,12 +8,12 @@
 <!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="{% static 'registration/login/images/icons/favicon.ico' %}">
 <!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="{% static 'registration/login/vendor/bootstrap/css/bootstrap.min.css' %}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'registration/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'share/vendor/bootstrap/css/bootstrap.min.css' %}">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static 'registration/login/fonts/iconic/css/material-design-iconic-font.min.css' %}">
-<!--===============================================================================================-->
+<!-- =============================================================================================== -->
+	<link rel="stylesheet" type="text/css" href="{% static 'share/fonts/shabnam/shabnam.css' %}">
+<!-- =============================================================================================== -->
 	<link rel="stylesheet" type="text/css" href="{% static 'registration/login/vendor/animate/animate.css' %}">
 <!--===============================================================================================-->	
 	<link rel="stylesheet" type="text/css" href="{% static 'registration/login/vendor/css-hamburgers/hamburgers.min.css' %}">
@@ -40,26 +40,26 @@
 					</span>
 					{% csrf_token %}
 					{% if form.non_field_errors %}
-						<div class="alert alert-danger alert-dismiss">
+						<div class="alert alert-danger alert-dismiss text-right">
 							نام کاربری یا رمزعبور وارد شده اشتباه است.
 						</div>
 					{% elif form.username.errors %}
-						<div class="alert alert-danger alert-dismiss">
+						<div class="alert alert-danger alert-dismiss text-right">
 							نام کاربری نمیتواند خالی باشد!
 						</div>
 					{% elif form.password.errors %}
-						<div class="alert alert-danger alert-dismiss">
+						<div class="alert alert-danger alert-dismiss text-right">
 							رمزعبور نمیتواند خالی باشد!
 						</div>
 					{% endif %}
 					<div class="wrap-input100 validate-input m-b-23" data-validate = "نام کاربری نمیتواند خالی باشد!">
-						<span class="label-input100 shabnam-font">نام کاربری</span>
+						<span class="label-input100 shabnam-font float-right">نام کاربری</span>
 						<input class="input100 shabnam-font" type="text" name="{{ form.username.name }}" placeholder="نام کاربری">
 						<span class="focus-input100" data-symbol="&#xf206;"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="رمزعبور نمیتواند خالی باشد!">
-						<span class="label-input100 shabnam-font">رمزعبور</span>
+						<span class="label-input100 shabnam-font float-right">رمزعبور</span>
 						<input class="input100 shabnam-font" type="password" name="{{ form.password.name }}" placeholder="رمزعبور">
 						<span class="focus-input100" data-symbol="&#xf190;"></span>
 					</div>
@@ -97,12 +97,11 @@
 	<div id="dropDownSelect1"></div>
 	
 <!--===============================================================================================-->
-	<script src="{% static 'registration/login/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+	<script src="{% static 'share/vendor/jquery/jquery.min.js' %}"></script>
 <!--===============================================================================================-->
 	<script src="{% static 'registration/login/vendor/animsition/js/animsition.min.js' %}"></script>
 <!--===============================================================================================-->
-	<script src="{% static 'registration/login/vendor/bootstrap/js/popper.js' %}"></script>
-	<script src="{% static 'registration/login/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'share/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
 <!--===============================================================================================-->
 	<script src="{% static 'registration/login/vendor/select2/select2.min.js' %}"></script>
 <!--===============================================================================================-->
