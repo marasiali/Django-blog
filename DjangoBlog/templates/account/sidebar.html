@@ -1,15 +1,15 @@
-{% load navbar_tags %}
+{% load sidebar_tags %}
 
 <div id="sidebar-nav" class="sidebar">
     <div class="sidebar-scroll">
         <nav>
             <ul class="nav">
-                {% item_menu False 'lnr-home' 'خانه' '#' %}
-                {% submenu False 'lnr-file-empty' 'مقالات' %}
-                    {% item_menu False 'lnr-list' 'لیست مقالات' '#' %}
-                    {% item_menu False 'lnr-plus-circle' 'افزودن مقاله' '#' %}
+                {% submenu 'articles' 'lnr-file-empty' 'مقالات' %}
+                    {% url 'account:article-list' as item_url %}
+                    {% item_menu 'article-list' 'lnr-list' 'لیست مقالات' item_url %}
+                    {% item_menu 'article-create' 'lnr-plus-circle' 'افزودن مقاله' '#' %}
                 {% endsubmenu %}
-                {% item_menu False 'lnr-exit' 'خروج' '#' %}
+                {% item_menu 'logout' 'lnr-exit' 'خروج' '#' %}
             </ul>
         </nav>
     </div>

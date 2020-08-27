@@ -4,10 +4,15 @@ from django.utils.html import format_html
 register = template.Library()
 
 ################# item_menu Tag #####################
-@register.simple_tag
-def item_menu(is_active, icon, title, link):
+@register.simple_tag(takes_context=True)
+def item_menu(context, name, icon, title, link):
     output = '<li><a href="{}" class="{}"><i class="lnr {}"></i> <span>{}</span></a></li>'
-    class_active = 'active' if is_active else ''
+    if context.get('has_submenu'):
+        active_item = context.get('active_sidebar_subitem')
+    else:
+        active_item = context.get('active_sidebar_item')
+    print(context.get('has_submenu'))
+    class_active = 'active' if active_item == name else ''
     output = output.format(link, class_active, icon, title)
     return format_html(output)
 
@@ -17,22 +22,23 @@ def item_menu(is_active, icon, title, link):
 def submenu(parser, token):
     nodelist = parser.parse(('endsubmenu',))
     parser.delete_first_token()
-    tag_name, is_active, icon, title = token.split_contents()
-    return SubmenuNode(nodelist, is_active.lower() == 'true', icon[1:-1], title[1:-1])
+    tag_name, name, icon, title = token.split_contents()
+    return SubmenuNode(nodelist, name[1:-1], icon[1:-1], title[1:-1])
 
 class SubmenuNode(template.Node):
     counter_id = 0
-    def __init__(self, nodelist, is_active, icon, title):
+    def __init__(self, nodelist, name, icon, title):
         self.nodelist = nodelist
-        self.is_active = is_active
+        self.name = name
         self.icon = icon
         self.title = title
         self.counter_id = SubmenuNode.counter_id
         SubmenuNode.counter_id += 1
     def render(self, context):
+        active_subitem = context.get('active_sidebar_item')
         content = self.nodelist.render(context)
-        a_class_active = 'active' if self.is_active else 'collapsed'
-        div_class_active = 'in' if self.is_active else ''
+        a_class_active = 'active' if active_subitem == self.name else 'collapsed'
+        div_class_active = 'show' if active_subitem == self.name else ''
         output = f"""<li><a href="#subPage{self.counter_id}" data-toggle="collapse" class="{a_class_active}">
                         <i class="lnr {self.icon}"></i> <span>{self.title}</span> <i class="icon-submenu lnr lnr-chevron-left"></i>
                     </a>

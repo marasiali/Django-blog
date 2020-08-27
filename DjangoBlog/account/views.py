@@ -23,5 +23,9 @@ class ArticleList(LoginRequiredMixin, ListView):
         context = super().get_context_data()
         context['draft_count'] = fa_digit(self.draft_count)
         context['published_count'] = fa_digit(self.published_count)
+        # sidebar variables
+        context['has_submenu'] = True
+        context['active_sidebar_item'] = 'articles'
+        context['active_sidebar_subitem'] = 'article-list'
         return context
     
