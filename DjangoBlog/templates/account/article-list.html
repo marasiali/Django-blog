@@ -1,0 +1,58 @@
+{% extends 'account/base.html' %}
+{% block title %}لیست مقالات{% endblock %}
+{% block main %}
+<div class="row">
+    <div class="col-12 col-md-12">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="lnr lnr-list"></i> لیست مقالات</h3>
+            </div>
+            <div class="panel-body no-padding">
+                <table class="table table-striped table-responsive">
+                    <thead>
+                        <tr>
+                            <th>عنوان</th>
+                            <th>تصویر اصلی</th>
+                            <th>متن</th>
+                            <th>زمان انتشار</th>
+                            <th>نویسنده</th>
+                            <th>وضعیت</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for article in object_list %}
+                            <tr>
+                                <td><a href="#">{{article.title}}</a></td>
+                                <td><img width=200 class="img-responsive img-rounded" src="{{article.thumbnail.url}}"></td>
+                                <td>{{article.description|truncatewords:30|striptags}}</td>
+                                <td>{{article.jpublished}}</td>
+                                <td>{{article.author.get_full_name}}</td>
+                                <td>
+                                    {% if article.status == 'p' %}
+                                        <span class="article-status label label-success">منتشرشده</span>
+                                        <a class="article-status label label-primary" href="{% url 'blog:details' article.slug %}">نمایش مقاله در سایت</a>
+                                    {% else %}
+                                        <span class="article-status label label-default">پیش‌نویس</span>
+                                    {% endif %}
+                                </td>
+                                <td class="article-actions">
+                                    <div>
+                                        <a href="#" class="float-left"><span class="fas fa-edit"></span></a>
+                                        <a href="#" class="float-right"><span class="fas fa-trash-alt"></span></a>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-md-6"><span class="panel-note"><i class="fas fa-file"></i> تعداد مقالات پیش‌نویس: {{ draft_count }}</span></div>
+                    <div class="col-md-6"><span class="panel-note success"><i class="fas fa-check" style="color:#5cb85c"></i> تعداد مقالات منتشرشده: {{ published_count }}</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

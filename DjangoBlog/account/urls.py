@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import home
+from .views import ArticleList
 
 app_name = 'account'
 urlpatterns = [
-    path('', home, name='home'),
+    path('', ArticleList.as_view(), name='article-list'),
 ]
