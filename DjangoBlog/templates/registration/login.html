@@ -34,11 +34,16 @@
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url({% static 'registration/login/images/bg-01.jpg' %});">
 			<div class="wrap-login100 p-l-35 p-r-35 p-t-45 p-b-35">
-				<form class="login100-form validate-form" method="post">
+				<form action="{% url 'login' %}" class="login100-form validate-form" method="post">
 					<span class="login100-form-title p-b-49 shabnam-font">
 						ورود
 					</span>
 					{% csrf_token %}
+					{% if request.GET.logout == '1' %}
+						<div class="alert alert-success text-right">
+							با موفقیت خارج شدید.
+						</div>
+					{% endif %}
 					{% if form.non_field_errors %}
 						<div class="alert alert-danger alert-dismiss text-right">
 							نام کاربری یا رمزعبور وارد شده اشتباه است.

@@ -9,7 +9,8 @@
                     {% item_menu 'article-list' 'lnr-list' 'لیست مقالات' item_url %}
                     {% item_menu 'article-create' 'lnr-plus-circle' 'افزودن مقاله' '#' %}
                 {% endsubmenu %}
-                {% item_menu 'logout' 'lnr-exit' 'خروج' '#' %}
+                {% url 'logout' as item_url %}
+                {% item_menu 'logout' 'lnr-exit' 'خروج' item_url %}
             </ul>
         </nav>
     </div>
