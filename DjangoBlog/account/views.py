@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from blog.models import Article
 from blog.extensions.utils import convert_to_persian_digits as fa_digit
@@ -28,4 +28,17 @@ class ArticleList(LoginRequiredMixin, ListView):
         context['active_sidebar_item'] = 'articles'
         context['active_sidebar_subitem'] = 'article-list'
         return context
-    
+
+
+class ArticleCreate(LoginRequiredMixin, CreateView):
+    model = Article
+    fields = ['author', 'title', 'slug', 'description', 'thumbnail', 'category', 'published', 'status']
+    template_name = 'account/article-create-update.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        # sidebar variables
+        context['has_submenu'] = True
+        context['active_sidebar_item'] = 'articles'
+        context['active_sidebar_subitem'] = 'article-create'
+        return context

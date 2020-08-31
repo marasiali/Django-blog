@@ -1,0 +1,20 @@
+{% extends 'account/base.html' %}
+{% block title %}افزودن مقاله{% endblock %}
+{% block main %}
+<div class="row">
+    <div class="col-12 col-md-12">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="lnr lnr-plus-circle"></i> افزودن مقاله</h3>
+            </div>
+            <div class="panel-body">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button class="btn btn-success">انتشار مقاله</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

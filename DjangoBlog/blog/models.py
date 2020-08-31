@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.utils import timezone
 from account.models import User
 from .extensions.utils import convert_to_jalali
@@ -80,6 +81,9 @@ class Article(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('account:article-list')
     
     class Meta:
         verbose_name = 'مطلب'
