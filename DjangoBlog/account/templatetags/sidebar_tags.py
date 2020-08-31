@@ -11,7 +11,6 @@ def item_menu(context, name, icon, title, link):
         active_item = context.get('active_sidebar_subitem')
     else:
         active_item = context.get('active_sidebar_item')
-    print(context.get('has_submenu'))
     class_active = 'active' if active_item == name else ''
     output = output.format(link, class_active, icon, title)
     return format_html(output)
