@@ -28,6 +28,8 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'account.apps.AccountConfig',
     'crispy_forms',
+    'django_wysiwyg',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -106,6 +108,7 @@ USE_L10N = True
 USE_TZ = True
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
+DJANGO_WYSIWYG_FLAVOR = "ckeditor"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/

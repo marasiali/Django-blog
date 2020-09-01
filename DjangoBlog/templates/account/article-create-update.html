@@ -1,5 +1,6 @@
 {% extends 'account/base.html' %}
 {% load crispy_forms_tags %}
+{% load wysiwyg %}
 
 {% block title %}افزودن مقاله{% endblock %}
 {% block main %}
@@ -50,4 +51,32 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block js_extra %}
+    {% wysiwyg_setup %}
+    <script type="text/javascript">
+        var django_wysiwyg_editor_config = {
+            'language': 'fa',
+            'skin': 'moono-lisa',
+            'toolbarGroups' : [
+                { name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
+                { name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
+                { name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
+                { name: 'forms', groups: [ 'forms' ] },
+                { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+                { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
+                '/',
+                { name: 'links', groups: [ 'links' ] },
+                { name: 'insert', groups: [ 'insert' ] },
+                { name: 'styles', groups: [ 'styles' ] },
+                { name: 'colors', groups: [ 'colors' ] },
+                { name: 'tools', groups: [ 'tools' ] },
+                { name: 'others', groups: [ 'others' ] },
+                { name: 'about', groups: [ 'about' ] }
+            ],
+            'removeButtons' : 'Save,NewPage,Preview,Print,Templates,PasteFromWord,Scayt,Checkbox,Form,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Language,Flash,Styles,About'
+        };
+    </script>
+    {% wysiwyg_editor form.description.auto_id %}
 {% endblock %}

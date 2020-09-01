@@ -15,7 +15,7 @@
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="post-preview">
             <h4 class="post-subtitle">
-              {{object.description | linebreaks}}
+              {{object.description | linebreaks | safe}}
             </h4>
             <p class="post-meta">نوشته شده توسط 
               <a href="{% url 'blog:author' article.author.username %}">{{article.author.get_full_name}}</a>
