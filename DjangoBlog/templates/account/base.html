@@ -11,6 +11,7 @@
 	<link rel="stylesheet" href="{% static 'account/vendor/bootstrap/css/bootstrap.min.css' %}">
 	<link rel="stylesheet" href="{% static 'share/vendor/fontawesome/css/all.min.css' %}">
 	<link rel="stylesheet" href="{% static 'share/vendor/linearicons/style.css' %}">
+	{% block head_extra %}{% endblock %}
 	<!-- FONT CSS -->
 	<link rel="stylesheet" href="{% static 'share/fonts/shabnam/shabnam.css' %}">
 	<!-- MAIN CSS -->
@@ -57,7 +58,7 @@
 	<script src="{% static 'account/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
 	<script src="{% static 'account/vendor/jquery-slimscroll/jquery.slimscroll.min.js' %}"></script>
 	<script src="{% static 'account/scripts/klorofil-common.js' %}"></script>
-	
+	{% block js_extra %}{% endblock %}
 </body>
 
 </html>
