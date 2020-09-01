@@ -95,3 +95,6 @@ footer, .copyright{
 footer a{
     color: #555;
 }
+.col-rtl{
+    float: right !important;
+}
